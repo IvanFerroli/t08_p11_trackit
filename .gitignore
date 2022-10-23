@@ -33,6 +33,6 @@ packages/react-devtools-extensions/firefox/*.xpi
 packages/react-devtools-extensions/firefox/*.pem
 packages/react-devtools-extensions/shared/build
 packages/react-devtools-extensions/.tempUserDataDir
-packages/react-devtools-inline/dist
+packages/react-devtools-inline/distgit 
 packages/react-devtools-shell/dist
 packages/react-devtools-timeline/dist
