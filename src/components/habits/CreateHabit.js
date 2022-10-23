@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import Swal from "sweetalert2";
+import dayjs from "dayjs";
 
 import {
 	Wrapper,
@@ -14,14 +15,20 @@ import {
 } from "./styled/CreateHabitStyled";
 import HabitsContext from "../../contexts/HabitsContext";
 import UserContext from "../../contexts/UserContext";
+import TodayHabitsContext from "../../contexts/TodayHabitsContext";
 
 function CreateHabit(props) {
 	const { isCreatingHabit, setIsCreatingHabit } = props;
 	const [newHabitInfo, setNewHabitInfo] = useState({ name: "", days: [] });
-	const weekdays = ["D", "S", "T", "Q", "Q", "S", "S"];
+	const weekdays = ["D", "S", "T", "Q", "S", "S"];
 	const [isLoading, setIsLoading] = useState(false);
 	const { userInfo } = useContext(UserContext);
 	const { habits, setHabits } = useContext(HabitsContext);
+	const { count, setPercentage, todayHabitsCount, setTodayHabitsCount } =
+		useContext(TodayHabitsContext);
+
+	const date = dayjs().day();
+
 	const config = {
 		headers: {
 			Authorization: `Bearer ${userInfo.token}`,
@@ -36,10 +43,19 @@ function CreateHabit(props) {
 			const promise = axios.post(URL, newHabitInfo, config);
 
 			promise.then((response) => {
-				setHabits([...habits, response.data]);
-				setIsCreatingHabit(0);
-				setIsLoading(false);
-				setNewHabitInfo({ name: "", days: [] });
+				const { data } = response;
+				if (data.days.some((day) => day === date)) {
+					setTodayHabitsCount(todayHabitsCount + 1);
+					setHabits([...habits, response.data]);
+					setIsCreatingHabit(0);
+					setIsLoading(false);
+					setNewHabitInfo({ name: "", days: [] });
+				} else {
+					setHabits([...habits, response.data]);
+					setIsCreatingHabit(0);
+					setIsLoading(false);
+					setNewHabitInfo({ name: "", days: [] });
+				}
 			});
 			promise.catch((err) => {
 				alert("Preencha os dados corretamente");

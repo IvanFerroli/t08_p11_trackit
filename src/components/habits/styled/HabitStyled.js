@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+export { Wrapper, Container, Weekday, Name };
 
 const Wrapper = styled.div`
 	width: 90%;
@@ -57,5 +58,3 @@ const Name = styled.div`
 		align-items: center;
 	}
 `;
-
-export { Wrapper, Container, Weekday, Name };

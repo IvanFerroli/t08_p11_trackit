@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+export { Wrapper, Container, Title, Text };
+
 const Wrapper = styled.div`
 	min-height: calc(100vh);
 	width: 100%;
@@ -57,5 +59,3 @@ const Text = styled.span`
 	color: #666666;
 	line-height: 22px;
 `;
-
-export { Wrapper, Container, Title, Text };
