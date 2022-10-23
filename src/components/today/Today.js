@@ -73,7 +73,7 @@ function Today() {
 	}
 
 	return (
-		<Container>
+		<Container data-identifier="today-infos">
 			<Header />
 			<Date>{date}</Date>
 			<Text count={count}>

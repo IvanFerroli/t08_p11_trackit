@@ -68,7 +68,7 @@ function CreateAccount() {
 	function showSignUpForm() {
 		return (
 			<>
-				<Input
+				<Input data-identifier="input-email"
 					disabled={isLoading}
 					onChange={(e) => {
 						setInputValue({ ...inputValue, email: e.target.value });
@@ -82,7 +82,7 @@ function CreateAccount() {
 					isLoading={isLoading}
 				></Input>
 
-				<Input
+				<Input data-identifier="input-password"
 					disabled={isLoading}
 					onChange={(e) => {
 						setInputValue({ ...inputValue, password: e.target.value });
@@ -97,7 +97,7 @@ function CreateAccount() {
 					isLoading={isLoading}
 				></Input>
 
-				<Input
+				<Input data-identifier="input-name"
 					disabled={isLoading}
 					onChange={(e) => {
 						setInputValue({ ...inputValue, name: e.target.value });
@@ -112,7 +112,7 @@ function CreateAccount() {
 					isLoading={isLoading}
 				></Input>
 
-				<Input
+				<Input data-identifier="input-photo"
 					disabled={isLoading}
 					onChange={(e) => {
 						setInputValue({ ...inputValue, image: e.target.value });
@@ -127,7 +127,8 @@ function CreateAccount() {
 					isLoading={isLoading}
 				></Input>
 
-				<Button isLoading={isLoading} type="submit">
+				<Button 
+				isLoading={isLoading} type="submit">
 					{isLoading ? (
 						<ThreeDots color="#fff" height="40" width="40" />
 					) : (
@@ -143,7 +144,8 @@ function CreateAccount() {
 			<img src={logo} alt="trackit logo" />
 			<h1>TrackIt</h1>
 			<SignUpForm onSubmit={sendAccountInfo}>{showSignUpForm()}</SignUpForm>
-			<Link to="/">
+			<Link data-identifier="back-to-login-action"
+			to="/">
 				<LoginLink>Ja tem uma conta? Faça Login!</LoginLink>
 			</Link>
 		</Container>

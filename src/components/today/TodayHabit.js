@@ -99,7 +99,7 @@ function TodayHabit(props) {
 					</div>
 				</Habit>
 
-				<BsCheckSquareFill
+				<BsCheckSquareFill data-identifier="done-habit-btn"
 					onClick={toggleDoneHabit}
 					color={isDone ? "#8FC549" : "#EBEBEB"}
 					size="70px"

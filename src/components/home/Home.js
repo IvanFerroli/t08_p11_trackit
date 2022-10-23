@@ -38,7 +38,7 @@ function Home() {
 	function showLoginForm() {
 		return (
 			<>
-				<Input
+				<Input data-identifier="input-email"
 					disabled={isLoading}
 					onChange={(e) => {
 						setInputValue({ ...inputValue, email: e.target.value });
@@ -52,7 +52,7 @@ function Home() {
 					placeholder="email"
 				></Input>
 
-				<Input
+				<Input data-identifier="input-password"
 					disabled={isLoading}
 					onChange={(e) => {
 						setInputValue({ ...inputValue, password: e.target.value });
@@ -66,7 +66,8 @@ function Home() {
 					value={inputValue.password}
 				></Input>
 
-				<Button isLoading={isLoading} type="submit">
+				<Button data-identifier="login-btn"
+				isLoading={isLoading} type="submit">
 					{isLoading ? (
 						<ThreeDots color="#fff" height="40" width="40" />
 					) : (
@@ -82,7 +83,8 @@ function Home() {
 			<img src={logo} alt="trackit logo" />
 			<h1>TrackIt</h1>
 			<LoginForm onSubmit={sendLoginInfo}>{showLoginForm()}</LoginForm>
-			<Link to="/cadastro">
+			<Link data-identifier="sign-up-action"
+			to="/cadastro">
 				<SignUpLink>Não tem uma conta? Cadastre-se!</SignUpLink>
 			</Link>
 		</Container>

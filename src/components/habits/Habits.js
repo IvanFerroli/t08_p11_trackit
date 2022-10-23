@@ -43,7 +43,7 @@ function Habits() {
 
 	function showHabitForm() {
 		return (
-			<CreateHabit
+			<CreateHabit data-identifier="create-habit-btn"
 				setIsCreatingHabit={setIsCreatingHabit}
 				isCreatingHabit={isCreatingHabit}
 			/>
@@ -65,7 +65,7 @@ function Habits() {
 			});
 		} else {
 			return (
-				<Text>
+				<Text data-identifier="no-habit-message">
 					Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para
 					começar a trackear!
 				</Text>

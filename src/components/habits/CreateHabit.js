@@ -80,7 +80,7 @@ function CreateHabit(props) {
 	function createWeekdays() {
 		return weekdays.map((weekday, index) => {
 			return (
-				<Weekday
+				<Weekday data-identifier="week-day-btn"
 					isLoading={isLoading}
 					key={index}
 					days={newHabitInfo.days}
@@ -98,7 +98,7 @@ function CreateHabit(props) {
 	return (
 		<Wrapper isCreatingHabit={isCreatingHabit}>
 			<ContainerForm>
-				<Input
+				<Input data-identifier="input-habit-name"
 					isLoading={isLoading}
 					disabled={isLoading}
 					value={newHabitInfo.name}
@@ -110,7 +110,7 @@ function CreateHabit(props) {
 				<div>{createWeekdays()}</div>
 			</ContainerForm>
 			<ContainerActions>
-				<Cancel
+				<Cancel data-identifier="cancel-habit-create-btn"
 					isLoading={isLoading}
 					onClick={() => {
 						setIsCreatingHabit(0);
@@ -118,7 +118,7 @@ function CreateHabit(props) {
 				>
 					Cancelar
 				</Cancel>
-				<Save
+				<Save data-identifier="save-habit-create-btn"
 					isLoading={isLoading}
 					onClick={() => {
 						if (newHabitInfo.days.length > 0 && newHabitInfo.name.length > 0) {

@@ -8,7 +8,7 @@ function Footer(props) {
 	const { percentage } = props;
 	return (
 		<Container>
-			<Link to="/habitos">
+			<Link data-identifier="habit-page-action" to="/habitos">
 				<span>Habitos</span>
 			</Link>
 			<Link to="/hoje">
@@ -26,7 +26,7 @@ function Footer(props) {
 					})}
 				/>
 			</Link>
-			<Link to="/historico">
+			<Link data-identifier="historic-page-action" to="/historico">
 				<span>Historico</span>
 			</Link>
 		</Container>

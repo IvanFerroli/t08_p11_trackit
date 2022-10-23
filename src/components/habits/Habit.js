@@ -47,9 +47,9 @@ function Habit(props) {
 		return (
 			<Wrapper>
 				<Container>
-					<Name>
+					<Name data-identifier="habit-name">
 						<p>{name}</p>
-						<span
+						<span data-identifier="delete-habit-btn"
 							onClick={() => {
 								Swal.fire({
 									title: "Deseja deletar este hábito?",

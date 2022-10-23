@@ -12,7 +12,7 @@ function Header() {
 		<Container>
 			<Content>
 				<span>TrackIt</span>
-				<img src={image} alt={(name, "image")}></img>
+				<img data-identifier="avatar" src={image} alt={(name, "image")}></img>
 			</Content>
 		</Container>
 	);
